@@ -1,0 +1,11 @@
+1.	create database schoolDB;
+
+2.	use  schoolDB;
+
+3.	create table students ( id int primary key, name varchar(50) not null, age int, grade char(1) ); 
+
+4.	insert into students( id, name, age, grade ) values(5, 'femina', 18, 'B');
+
+5.	select * from students;
+
+6.	drop database schoolDB;
