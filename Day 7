@@ -1,0 +1,72 @@
+-- 1. Create tables customers and orders
+
+CREATE TABLE customers ( customer_id INT PRIMARY KEY,
+                         customer_name VARCHAR(50) );
+
+CREATE TABLE orders ( order_id INT PRIMARY KEY,
+                      product_name VARCHAR(50),
+                      customer_id INT,
+                      FOREIGN KEY (customer_id) REFERENCES customers(customer_id) );
+
+-- 2. Insert 5 customers and 5 orders
+
+INSERT INTO customers VALUES(1,'Asha'), (2,'Rahul'), (3,'Meena'), (4,'John'), (5,'Sara');
+
+INSERT INTO orders VALUES(101,'Laptop',1),(102,'Mobile',2),(103,'Tablet',1),(104,'Watch',3),(105,'Shoes',5);
+
+-- 3. INNER JOIN
+
+SELECT customers.customer_name, orders.product_name FROM customers INNER JOIN orders ON customers.customer_id = orders.customer_id;
+
+-- 4. LEFT JOIN
+
+SELECT customers.customer_name, orders.product_name FROM customers LEFT JOIN orders ON customers.customer_id = orders.customer_id;
+
+-- 5. 2NF Example
+
+❌ Table with repeating data
+
+| StudentID | StudentName | Subject1 | Subject2 |
+| --------- | ----------- | -------- | -------- |
+| 1         | Ravi        | Math     | Science  |
+
+✅ Convert into 2 tables
+
+*Students*
+
+| StudentID | StudentName |
+| --------- | ----------- |
+| 1         | Ravi        |
+
+*Subjects*
+
+| StudentID | Subject |
+| --------- | ------- |
+| 1         | Math    |
+| 1         | Science |
+
+---
+
+### 6. 3NF Example
+
+❌ Before 3NF
+
+| EmpID | EmpName | DeptID | DeptName |
+| ----- | ------- | ------ | -------- |
+| 1     | Arun    | D1     | HR       |
+
+DeptName depends on DeptID, not directly on EmpID.
+
+✅ After 3NF
+
+*Employees*
+
+| EmpID | EmpName | DeptID |
+| ----- | ------- | ------ |
+| 1     | Arun    | D1     |
+
+*Departments*
+
+| DeptID | DeptName |
+| ------ | -------- |
+| D1     | HR       |
