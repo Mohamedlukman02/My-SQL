@@ -65,3 +65,34 @@ SELECT * FROM employees;
 ## Author
 
 Mohamed Lukman
+
+# MySQL Orders Table Filtering & Sorting
+
+## Task: Orders Database Operations
+
+### Description
+Created an orders table and practiced data filtering and sorting operations using SQL queries.
+
+## Operations Performed
+
+### 1. Create Orders Table
+
+Created a table with columns:
+- `id` - Primary Key
+- `product_name`
+- `quantity`
+- `price`
+
+### 2. Insert Order Records
+
+Inserted 5 order records with:
+- Product name
+- Quantity
+- Price
+
+### 3. Filter Orders by Quantity
+
+Retrieved orders where quantity is greater than 2.
+
+```sql
+WHERE quantity > 2;
